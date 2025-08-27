@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Desenvolvimento Web</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="tema-claro">
+
+    <header class="menu-navegacao">
+        <nav>
+            <ul>
+                <li><a href="#exercicio1" class="nav-link">Contador</a></li>
+                <li><a href="#exercicio2" class="nav-link">Galeria</a></li>
+            </ul>
+        </nav>
+        <div class="seletor-tema">
+            <button id="btnTemaClaro">Tema Claro</button>
+            <button id="btnTemaEscuro">Tema Escuro</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="exercicio1" class="exercicio" style="display: none;">
+            <div class="conteudo">
+                <h2>Exercício 1: Contador Interativo</h2>
+                <div class="contador-container">
+                    <label for="passoInput">Valor do Passo:</label>
+                    <input type="number" id="passoInput" placeholder="Padrão: 1" min="1">
+                    <h3 id="valorContador">0</h3>
+                    <div class="botoes-contador">
+                        <button id="btnDecrementar">- Decrementar</button>
+                        <button id="btnIncrementar">+ Incrementar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="exercicio2" class="exercicio" style="display: none;">
+            <div class="conteudo">
+                <h2>Exercício 2: Galeria de Imagens Responsiva</h2>
+                <div class="galeria-container">
+                    <div class="imagem-destaque-container">
+                        <img src="" alt="Imagem em destaque" id="imagemPrincipal">
+                    </div>
+                    <div class="galeria-miniaturas" id="miniaturasContainer">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
