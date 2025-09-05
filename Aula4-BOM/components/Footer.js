@@ -1,8 +1,12 @@
-import {produtos} from '../assets/js/data.js'
+export const Footer = (products) => {
+    const totalValue = products.reduce((acc, product) => acc + product.preco, 0);
 
-export function Footer(){
-    const footer = document.createElement('footer')
-    const total = produtos.reduce((acc, prod)=> acc + prod.preco, 0)
-    footer.innerHTML = `Total: R$ ${total}`    
-    return footer;
-}
+//    const footer = document.createElement('footer')
+//    const total = produtos.reduce((acc, prod)=> acc + prod.preco, 0)
+//    footer.innerHTML = `Total: R$ ${total}`    
+//    return footer;
+
+    return `
+        <p>Valor Total de Todos os Produtos: <strong>R$ ${totalValue}</strong></p>
+    `;
+};

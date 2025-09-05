@@ -1,5 +1,5 @@
-export function Header(){
-    const header = document.createElement('header')
-    header.innerHTML = "<h1> Página de Produtos </h1>"
-    return header;
-}
+export const Header = (title) => {
+    return `
+        <h1>${title}</h1>
+    `;
+};

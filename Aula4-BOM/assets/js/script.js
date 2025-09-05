@@ -41,11 +41,24 @@ const cidadeRS = cidades.filter(cidade => cidade.estado == "RS")
 console.log(cidadeRS) */
 
 
-import { Header } from "../../components/Header";
-//import { ListCards }  from "../../components/ListCards";
-import { Footer }  from "../../components/Footer";
+import products from './data.js';
 
-document.body.appendChild(Header())
-//document.body.appendChild(ListCards())
-document.body.appendChild(Footer())
+import { Header } from '../../components/Header.js';
+import { ListCards } from '../../components/ListCards.js';
+import { Footer } from '../../components/Footer.js';
 
+// Função principal que renderiza a aplicação
+const renderApp = () => {
+    // Seleciona os elementos do DOM onde os componentes serão inseridos
+    const headerElement = document.getElementById('main-header');
+    const contentElement = document.getElementById('app-content');
+    const footerElement = document.getElementById('main-footer');
+
+    // Renderiza cada componente e insere o HTML gerado no DOM
+    headerElement.innerHTML = Header('Minha Loja Online');
+    contentElement.innerHTML = ListCards(products);
+    footerElement.innerHTML = Footer(products);
+};
+
+// Adiciona um listener para garantir que o DOM esteja totalmente carregado antes de renderizar
+document.addEventListener('DOMContentLoaded', renderApp);
