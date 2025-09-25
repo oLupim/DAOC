@@ -39,3 +39,15 @@ Aula 5 — Iteração de Arrays
 -Compreender as diferenças e aplicações de cada método de iteração.  
 -Desenvolver soluções para problemas práticos utilizando forEach, map, filter e reduce.  
 -Estimular o uso consciente de fontes de consulta e ferramentas de apoio.  
+
+Aula 10 — Introdução ao React   
+
+-Entramos no universo do React, um dos principais frameworks/bibliotecas  front-end.  
+-Criamos a primeira aplicação em React com componentes reutilizáveis.  
+-Compreendemos o conceito de JSX (mistura de HTML e JS).  
+
+Aula 11 — Props e State no React   
+
+-Estudamos os conceitos fundamentais do React:  
+-Props: dados passados de um componente pai para o filho.  
+-State: estado interno de um componente, que pode mudar ao longo do tempo.  
