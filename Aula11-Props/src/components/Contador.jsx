@@ -11,11 +11,16 @@ export default function Contador(){
     }
 
     
-    return(
+    return (
         <div>
-            <p>Contador: {numero}</p>
-            <button onClick={incrementar}>Incrementar</button>
-            <h2>{tempo}</h2>
+        <h2>Contador</h2>
+        <p>{numero}</p>
+
+        <div>
+            <button onClick={() => setNumero(numero - 1)}>-</button>
+            <button onClick={() => setNumero(0)}>Reset</button>
+            <button onClick={() => setNumero(numero + 1)}>+</button>
         </div>
-    )
+        </div>
+    );
 }
