@@ -1,39 +1,22 @@
 import { useState, useEffect } from 'react';
 
-const useFetchCep = (cep) => {
+function useFetchCep(cep) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchCep = async () => {
-      if (!cep) return;
+    if (!cep) return;
 
-      setLoading(true);
-      setError(null);
-      setData(null);
-
-      try {
-        const cleanCep = cep.replace('-', '');
-        const res = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`);
-        const json = await res.json();
-
-        if (json.erro) {
-          setError('CEP não encontrado');
-        } else {
-          setData(json);
-        }
-      } catch {
-        setError('Erro ao buscar CEP');
-      } finally {
-        setLoading(false);
-      }
-    };
+    async function fetchCep() {
+      const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const dados = await resposta.json();
+      setData(dados); // Salva os dados na variável data
+    }
 
     fetchCep();
-  }, [cep]);
 
-  return { data, loading, error };
-};
+  }, [cep]); // Sempre que o CEP mudar, refaz a busca
+
+  return data;
+}
 
 export default useFetchCep;

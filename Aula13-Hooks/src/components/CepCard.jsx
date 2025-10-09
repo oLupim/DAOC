@@ -1,46 +1,44 @@
 import React, { useState } from 'react';
-import useFetchCep from '../hooks/useFetchCep'; // Importando o Custom Hook
+import useFetchCep from '../hooks/useFetchCep';
 
-const CepCard = () => {
+function CepCard() {
   const [cep, setCep] = useState('');
-  const { data, loading, error } = useFetchCep(cep);
+  const data = useFetchCep(cep); 
 
-  const handleCepChange = (event) => {
-    setCep(event.target.value);
-  };
+  function handleChange(e) {
+    setCep(e.target.value);               
+  }
 
-  // Função para prevenir o envio do formulário (porque a busca é feita via useEffect)
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  function handleSubmit(e) {
+    e.preventDefault();                       
+  }
 
   return (
     <div>
       <h2>Buscar Endereço por CEP</h2>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={cep}
-          onChange={handleCepChange}
+          onChange={handleChange}
           placeholder="Digite o CEP (ex: 12345-678)"
         />
         <button type="submit">Buscar</button>
       </form>
 
-      {loading && <p>Carregando...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {data && !loading && !error && (
+      {data && (
         <div>
           <h3>Resultado:</h3>
           <p><strong>CEP:</strong> {data.cep}</p>
           <p><strong>Logradouro:</strong> {data.logradouro}</p>
           <p><strong>Bairro:</strong> {data.bairro}</p>
-          <p><strong>Localidade:</strong> {data.localidade}</p>
-          <p><strong>UF:</strong> {data.uf}</p>
+          <p><strong>Cidade:</strong> {data.localidade}</p>
+          <p><strong>Estado (UF):</strong> {data.uf}</p>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default CepCard;
