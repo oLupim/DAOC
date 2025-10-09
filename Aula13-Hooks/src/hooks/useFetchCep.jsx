@@ -9,13 +9,6 @@ const useFetchCep = (cep) => {
     const fetchCep = async () => {
       if (!cep) return;
 
-      const isValid = /^[0-9]{5}-?[0-9]{3}$/.test(cep);
-      if (!isValid) {
-        setError('CEP inválido');
-        setData(null);
-        return;
-      }
-
       setLoading(true);
       setError(null);
       setData(null);
